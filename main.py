@@ -200,23 +200,23 @@ class PhishingDetector:
         # Rozszerzona lista słów kluczowych
         self.target_keywords = [
             'paypal', 'amazon', 'google', 'microsoft', 'apple', 'facebook',
-            'instagram', 'twitter', 'linkedin', 'netflix', 'spotify',
-            'bankofamerica', 'chase', 'wellsfargo', 'citibank',
-            'societegenerale', 'bnpparibas', 'creditagricole',
-            'gmail', 'outlook', 'yahoo', 'dropbox', 'github',
-            # Polskie banki
-            'pkobp', 'mbank', 'ingbank', 'santander', 'aliorbank',
-            'pekao', 'bzwbk', 'getin', 'eurobank'
+            # 'instagram', 'twitter', 'linkedin', 'netflix', 'spotify',
+            # 'bankofamerica', 'chase', 'wellsfargo', 'citibank',
+            # 'societegenerale', 'bnpparibas', 'creditagricole',
+            # 'gmail', 'outlook', 'yahoo', 'dropbox', 'github',
+            # # Polskie banki
+            # 'pkobp', 'mbank', 'ingbank', 'santander', 'aliorbank',
+            # 'pekao', 'bzwbk', 'getin', 'eurobank'
         ]
 
         # Suspicious patterns
         self.suspicious_patterns = [
-            r'.*-[a-z0-9]{8,}\..*',  # Random suffix
-            r'.*[0-9]{4,}\..*',  # Multiple digits
-            r'.*-?(secure|verify|update|login|account).*',  # Phishing keywords
-            r'.*\.(tk|ml|ga|cf)$',  # Suspicious TLDs
+            r'.*-?(secure|verify|update|login|account|support)-?.*',  # Phishing słowa
+            r'.*[0-9]{6,}.*',  # Długie ciągi cyfr (nie 4)
+            r'.*-[a-z0-9]{10,}$',  # Bardzo długie losowe sufiksy
+            r'.*\.(tk|ml|ga|cf|top)$',  # Podejrzane TLD
+            r'.*-?(bank|pay|secure)-?[0-9]+.*',  # Bank + cyfry
         ]
-
         self.init_database()
 
     def init_database(self):
