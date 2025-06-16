@@ -30,6 +30,13 @@ Monitors certificates for popular brands and services including:
 - **Email Services**: Gmail, Outlook, Yahoo
 - **Polish Banks**: PKO BP, mBank, ING Bank, Santander, and others
 
-## Installation
+## Usage
 
-### Prerequisites
+```bash
+git clone https://github.com/lukmiik/zaawansowane-techniki-sieciowe-ct-logs
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd src
+python main.py
+```
